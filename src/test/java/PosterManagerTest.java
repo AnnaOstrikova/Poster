@@ -6,11 +6,11 @@ public class PosterManagerTest {
     PosterManager manager = new PosterManager();
 
     @BeforeEach
-            public void setup() {
+    public void setup() {
         manager.add("Forward");
         manager.add("Hotel Belgrade");
         manager.add("Gentlemen");
-        }
+    }
 
     @Test
     public void addMovies() {
@@ -18,15 +18,16 @@ public class PosterManagerTest {
         String[] actual = manager.findAll();
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
-    public void shouldReversMoviesLessLimit(){
+    public void shouldReversMoviesLessLimit() {
         String[] expected = {"Gentlemen", "Hotel Belgrade", "Forward"};
         String[] actual = manager.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void shouldReversMoviesAboveLimit(){
+    public void shouldReversMoviesAboveLimit() {
         manager.add("Invisible Man");
         manager.add("Trolls");
         manager.add("Number one");
@@ -34,8 +35,9 @@ public class PosterManagerTest {
         String[] actual = manager.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
-    public void shouldReversMoviesLimit(){
+    public void shouldReversMoviesLimit() {
         manager.add("Invisible Man");
         manager.add("Trolls");
         String[] expected = {"Trolls", "Invisible Man", "Gentlemen", "Hotel Belgrade", "Forward"};
